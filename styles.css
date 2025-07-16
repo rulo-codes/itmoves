@@ -13,3 +13,8 @@
 .centered{
     margin: auto auto;
 }
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}

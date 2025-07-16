@@ -30,4 +30,4 @@ const rotateLogo = () => {
 
 $button.addEventListener("click", rotateLogo)
 
-console.log("Hello")
+console.log("ItMoves Test")
