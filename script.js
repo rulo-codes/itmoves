@@ -1,33 +1,21 @@
 const { animate, utils, createDraggable, createSpring } = anime;
 
-const [ $logo ] = utils.$('.logo.js');
-const [ $button ] = utils.$('button');
-let rotations = 0;
 
-animate('.logo.js', {
-  scale: [
-    { to: 1.25, ease: 'inOut(3)', duration: 200 },
-    { to: 1, ease: createSpring({ stiffness: 300 }) }
+animate('span', {
+  // Property keyframes
+  y: [
+    { to: '-7.75rem', ease: 'outExpo', duration: 600 },
+    { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
   ],
-  loop: true,
-  loopDelay: 250,
+  // Property specific parameters
+  rotate: {
+    from: '-1turn',
+    delay: 0
+  },
+  delay: (_, i) => i * 50, // Function based value
+  ease: 'inOutCirc',
+  loopDelay: 1000,
+  loop: true
 });
-
-createDraggable('.logo.js', {
-  container: [0, 0, 0, 0],
-  releaseEase: createSpring({ stiffness: 200 })
-});
-
-const rotateLogo = () => {
-  rotations++;
-  $button.innerText = `rotations: ${rotations}`;
-  animate($logo, {
-    rotate: rotations * 360,
-    ease: 'out(4)',
-    duration: 1500,
-  });
-}
-
-$button.addEventListener("click", rotateLogo)
 
 console.log("ItMoves Test")
